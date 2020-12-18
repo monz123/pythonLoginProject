@@ -3,18 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <script src='https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js'></script>
+    <style>
+  #operation, #button {
+  background-color: black;
+  border-color: grey;
+  color: white;
+  font-weight:bold;
+  padding: 5px 15px;
+  text-align: center;
+  font-size: 20px;
+}
+</style>
 </head>
 <body>
 <form action="Test.html">
-  <label for="cars">Choose the operation to visualize the chart:</label>
+    <label for="cars"><h1><b>Choose the operation to visualize the chart:</b></h1></label>
   <select name="operation" id="operation">
     <option value="add">Add</option>
       <option value="subtract">Subtract</option>
       <option value="multiply">Multiply</option>
       <option value="divide">Divide</option>
   </select>
-  <br><br>
-  <input type="submit" value="Submit" onclick="performOperation()">
+  <input type="submit" value="Submit" id="button" onclick="performOperation()">
 </form>
 <canvas id="chart" width="900" height="600"></canvas>
 <script>
