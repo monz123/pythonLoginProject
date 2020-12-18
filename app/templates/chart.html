@@ -66,6 +66,12 @@
             zlabels[i] = xlabels[i] + ylabels[i];
         }
     }
+    async  function subtract(){
+        var i;
+        for (i = 0; i < xlabels.length; i++) {
+            zlabels[i] = xlabels[i] + ylabels[i];
+        }
+    }
 
         async function getData() {
           const response = await fetch("test.csv");
