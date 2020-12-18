@@ -8,13 +8,13 @@
 <form action="Test.html">
   <label for="cars">Choose the operation to visualize the chart:</label>
   <select name="operation" id="operation">
-    <option value="Add">Add</option>
-      <option value="Subtract">Subtract</option>
-      <option value="Multiply">Multiply</option>
-      <option value="Divide">Divide</option>
+    <option value="add">Add</option>
+      <option value="subtract">Subtract</option>
+      <option value="multiply">Multiply</option>
+      <option value="divide">Divide</option>
   </select>
   <br><br>
-  <input type="submit" value="Submit">
+  <input type="submit" value="Submit" onclick="performOperation()">
 </form>
 <canvas id="chart" width="900" height="600"></canvas>
 <script>
@@ -62,6 +62,21 @@
             }
     }
         });
+    }
+
+    async function performOperation(){
+        if(document.getElementById("operation").value == "add"){
+            await add();
+        }
+        else if(document.getElementById("operation").value == "subtract"){
+            await subtract();
+        }
+        else if(document.getElementById("operation").value == "multiply"){
+            await multiply();
+        }
+        else if (document.getElementById("operation").value == "divide"){
+            await divide();
+        }
     }
     async  function add(){
         var i;
