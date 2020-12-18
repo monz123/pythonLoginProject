@@ -69,7 +69,19 @@
     async  function subtract(){
         var i;
         for (i = 0; i < xlabels.length; i++) {
-            zlabels[i] = xlabels[i] + ylabels[i];
+            zlabels[i] = xlabels[i] - ylabels[i];
+        }
+    }
+    async  function multiply(){
+        var i;
+        for (i = 0; i < xlabels.length; i++) {
+            zlabels[i] = xlabels[i] * ylabels[i];
+        }
+    }
+    async  function divide(){
+        var i;
+        for (i = 0; i < xlabels.length; i++) {
+            zlabels[i] = xlabels[i] / ylabels[i];
         }
     }
 
