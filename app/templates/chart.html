@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src='https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js'></script>
+    <style>
+  #operation, #button {
+  background-color: black;
+  border-color: grey;
+  color: white;
+  font-weight:bold;
+  padding: 5px 15px;
+  text-align: center;
+  font-size: 20px;
+}
+</style>
+</head>
+<body>
+<form action="Test.html">
+    <label for="cars"><h1><b>Choose the operation to visualize the chart:</b></h1></label>
+  <select name="operation" id="operation">
+    <option value="add">Add</option>
+      <option value="subtract">Subtract</option>
+      <option value="multiply">Multiply</option>
+      <option value="divide">Divide</option>
+  </select>
+  <input type="submit" value="Submit" id="button" onclick="performOperation()">
+</form>
+<canvas id="chart" width="900" height="600"></canvas>
+<script>
+    const ctx = document.getElementById('chart').getContext('2d');
+    const xlabels = [3,5,7,2,4,8,9,11,9];
+    const ylabels = [6,5,8,9,3,5,2,11,4];
+    const zlabels = [];
+
+    add();
+    getData();
+    chartIt();
+
+    async function chartIt() {
+        await getData();
+        const chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: zlabels,
+                datasets: [
+                    {
+                    label: 'Input 1',
+                    backgroundColor: 'red',
+                    borderColor: 'black',
+                    borderWidth: 1,
+                        data: xlabels
+                    },
+                    {
+                    label: 'Input 2',
+                    backgroundColor: 'green',
+                    borderColor: 'black',
+                    borderWidth: 1,
+                        data: ylabels
+                    }
+                ],
+            },
+            options: {
+                responsive:false,
+                scales: {
+                    xAxes: [{
+                        stacked: false
+                    }],
+                    yAxes: [{
+                        stacked: false
+                    }]
+            }
+    }
+        });
+    }
+
+    async function performOperation(){
+        if(document.getElementById("operation").value == "add"){
+            await add();
+        }
+        else if(document.getElementById("operation").value == "subtract"){
+            await subtract();
+        }
+        else if(document.getElementById("operation").value == "multiply"){
+            await multiply();
+        }
+        else if (document.getElementById("operation").value == "divide"){
+            await divide();
+        }
+    }
+    async  function add(){
+        var i;
+        for (i = 0; i < xlabels.length; i++) {
+            zlabels[i] = xlabels[i] + ylabels[i];
+        }
+    }
+    async  function subtract(){
+        var i;
+        for (i = 0; i < xlabels.length; i++) {
+            zlabels[i] = xlabels[i] - ylabels[i];
+        }
+    }
+    async  function multiply(){
+        var i;
+        for (i = 0; i < xlabels.length; i++) {
+            zlabels[i] = xlabels[i] * ylabels[i];
+        }
+    }
+    async  function divide(){
+        var i;
+        for (i = 0; i < xlabels.length; i++) {
+            zlabels[i] = xlabels[i] / ylabels[i];
+        }
+    }
+
+        async function getData() {
+          const response = await fetch("test.csv");
+          const data = await response.text();
+        }
+
+</script>
+</body>
+</html>
