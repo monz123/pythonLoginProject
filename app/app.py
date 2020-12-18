@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, session, logging, url_for, redirect
 from flaskext.mysql import MySQL
 from pymysql.cursors import DictCursor
-
+import json
 
 app = Flask(__name__)
 mysql = MySQL(cursorclass=DictCursor)
@@ -43,9 +43,14 @@ def login():
         password = request.form.get("password")
         cursor = mysql.get_db().cursor()
         cursor.execute('SELECT email,password FROM information where email=%s and password =%s',( email,password))
-        account=cursor.fetchall
-        if(email== account['email'] & password == account['password']):
-            return redirect("home.html")
+        result = cursor.fetchall()
+        json_result = json.dumps(result)
+        print(result)
+        print(json_result)
+        if (result):
+            return render_template("home.html",msg="Logged In Successfully!!!")
+        else:
+            return render_template("login.html",msg="Incorret Login ID/Password !")
 
     if request.method == "GET":
         return render_template("login.html")
