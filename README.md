@@ -10,12 +10,12 @@
  
  ### Screenshots:
  #### Registration Page
- ![](https://github.com/monz123/pythonLoginProject/tree/master/app/images/2.png)
+ ![](/app/images/2.png)
  #### Email Verification
- ![](https://github.com/monz123/pythonLoginProject/tree/master/app/images/4.png)
+ ![](/app/images/4.png)
  #### Login Page
- ![](https://github.com/monz123/pythonLoginProject/tree/master/app/images/111.png)
+ ![](/app/images/111.png)
  #### Sending Email
- ![](https://github.com/monz123/pythonLoginProject/tree/master/app/images/7.png)
- ![](https://github.com/monz123/pythonLoginProject/tree/master/app/images/8.png)
+ ![](/app/images/7.png)
+ ![](/app/images/8.png)
  
