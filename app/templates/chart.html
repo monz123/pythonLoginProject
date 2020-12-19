@@ -26,17 +26,16 @@
   </select>
   <input type="submit" value="Submit" id="button" onclick="performOperation()">
 </form>
-<canvas id="chart" width="900" height="600"></canvas>
+<canvas id="chart" width="800" height="500"></canvas>
 <script>
     const ctx = document.getElementById('chart').getContext('2d');
     const xlabels = [3,5,7,2,4,8,9,11,9];
     const ylabels = [6,5,8,9,3,5,2,11,4];
     const zlabels = [];
 
-    add();
     getData();
     chartIt();
-
+    performOperation();
     async function chartIt() {
         await getData();
         const chart = new Chart(ctx, {
@@ -45,18 +44,25 @@
                 labels: zlabels,
                 datasets: [
                     {
-                    label: 'Input 1',
+                    label: 'y-axis: Input 1',
                     backgroundColor: 'red',
                     borderColor: 'black',
                     borderWidth: 1,
                         data: xlabels
                     },
                     {
-                    label: 'Input 2',
+                    label: 'y-axis: Input 2',
                     backgroundColor: 'green',
                     borderColor: 'black',
                     borderWidth: 1,
                         data: ylabels
+                    },
+                    {
+                        label: 'x-axis: Result',
+                        backgroundColor: 'blue',
+                        borderColor: 'black',
+                        borderWidth: 1,
+                        data: zlabels
                     }
                 ],
             },
