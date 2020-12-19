@@ -11,11 +11,11 @@ services:
       - "5000:5000"
 
   db:
-    image: mysql:5.7
+    image: library/mysql:5.7
     container_name: "MySQL_Database_Login"
     ports:
       - "32000:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: 'root'
     volumes:
       - ./db:/docker-entrypoint-initdb.d/:ro

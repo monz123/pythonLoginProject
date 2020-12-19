@@ -1,6 +1,5 @@
-CREATE DATABASE infoDatabase;
-use infoDatabase;
-
+CREATE DATABASE infoDB;
+use infoDB;
 CREATE TABLE IF NOT EXISTS information (
     `id` int AUTO_INCREMENT,
     `firstName` VARCHAR(50) CHARACTER SET utf8,
