@@ -21,15 +21,16 @@
  
  ### Feature - 2- Vivek
 * I have created the login page of feature-2
+* For running the program, run the chart.html file with the flask and docker.
 * Also, implemented Chart.js for visualizing different mathematical operations.
 * Different mathematical operations are in the drop-down menu to visualize the data on the charts.
 * Select any of the operation and click on submit button to see the results on charts.
  
  ### Screenshots:
  #### Add operation
- ![](/app/Screenshots/Screen Shot 2020-12-18 at 10.12.18 AM.png)
+ ![](/app/Screenshots/a.png)
  #### Subtract operation
- ![](/app/Screenshots/Screen Shot 2020-12-18 at 10.13.08 AM.png)
+ ![](/app/Screenshots/b.png)
  #### Divide operation
- ![](/app/Screenshots/Screen Shot 2020-12-18 at 10.13.36 AM.png)
+ ![](/app/Screenshots/c.png)
 
